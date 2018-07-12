@@ -1,0 +1,31 @@
+{
+    "configurations": [
+        {
+            "name": "Mac",
+            "browse": {
+                "path": [
+                    "${workspaceFolder}"
+                ],
+                "limitSymbolsToIncludedHeaders": true
+            },
+            "includePath": [
+                "~/Dropbox/Carl/projects/includes/libc",
+                "~/Dropbox/Carl/projects/includes/linux-4.4.138",
+                "${workspaceFolder}",
+                "~/Dropbox/Carl/projects/includes/boost_1_67_0",
+                "${workspaceFolder}/libs/catch2",
+                "${workspaceFolder}/libs/CLI11",
+                "${workspaceFolder}/libs/spdlog/include"
+            ],
+            "defines": [
+                "_VSCODE"
+            ],
+            "macFrameworkPath": [],
+            "compilerPath": "/usr/bin/clang",
+            "cStandard": "c11",
+            "cppStandard": "c++17",
+            "intelliSenseMode": "clang-x64"
+        }
+    ],
+    "version": 4
+}

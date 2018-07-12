@@ -1,0 +1,23 @@
+{
+    "C_Cpp.default.cppStandard": "c++17",
+    "files.insertFinalNewline": true,
+    "files.trimTrailingWhitespace": true,
+    "editor.dragAndDrop": false,
+    "editor.emptySelectionClipboard": false,
+    "editor.renderWhitespace": "boundary",
+    "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/CVS": true,
+        "**/.DS_Store": true,
+        "freenetconfig.*": true,
+        "*.d": true,
+        "*.o": true
+    },
+    "editor.minimap.enabled": false,
+    "editor.fontSize": 12,
+    "workbench.editor.enablePreview" :false,
+    "workbench.editor.enablePreviewFromQuickOpen": false,
+    "C_Cpp.errorSquiggles": "Disabled"
+}

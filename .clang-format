@@ -1,0 +1,50 @@
+Language:      Cpp
+BasedOnStyle:  LLVM
+IndentWidth:   4
+ColumnLimit:   120
+AccessModifierOffset: -4
+AlignAfterOpenBracket: Align
+AlignConsecutiveAssignments: false
+AlignConsecutiveDeclarations: false
+AlignEscapedNewlinesLeft: false
+AlignTrailingComments: true
+AllowShortCaseLabelsOnASingleLine: false
+AllowShortFunctionsOnASingleLine: Inline
+AlwaysBreakTemplateDeclarations: true
+BinPackArguments: false
+BinPackParameters: false
+BraceWrapping:
+  AfterClass:      true
+  AfterEnum:       true
+  AfterFunction:   true
+  AfterNamespace:  true
+  AfterStruct:     true
+  AfterUnion:      true
+  BeforeCatch:     true
+  BeforeElse:      true
+BreakBeforeBinaryOperators: NonAssignment
+BreakBeforeBraces: Allman
+# TODO CLANG-5: BreakBeforeInheritanceComma: true
+BreakConstructorInitializersBeforeComma: true
+CommentPragmas:  '^ NO-FORMAT:'
+ConstructorInitializerAllOnOneLineOrOnePerLine: false
+ConstructorInitializerIndentWidth: 8
+ContinuationIndentWidth: 4
+Cpp11BracedListStyle: false
+DerivePointerAlignment: false
+FixNamespaceComments: false
+IndentWrappedFunctionNames: false
+MaxEmptyLinesToKeep: 1
+NamespaceIndentation: None
+PointerAlignment: Left
+SortIncludes: false
+IncludeCategories:
+  - Regex:           '^<boost/'
+    Priority:        1
+  - Regex:           '^<.*'
+    Priority:        2
+  - Regex:           '^".*'
+    Priority:        3
+SpaceAfterCStyleCast: false
+Standard:        Cpp11
+

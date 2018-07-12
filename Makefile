@@ -9,6 +9,7 @@ LDFLAGS=-pthread -static -L /opt/boost_1_67_0/stage/lib
 LDLIBS=-lboost_system-mt
 EXECUTABLE=fnc
 TEST_EXECUTABLE=fnctest
+BUILD_CONTAINER=fnc-build
 
 # Set compile flags based on build type
 CXXFLAGS=$(CXXFLAGS.all) $(CXXFLAGS.$(BUILD))
@@ -80,6 +81,18 @@ test: $(TEST_EXECUTABLE)
 # Remove all artifacts
 clean:
 	$(RM) -r $(BUILD_BASE_DIR) docs *.o *.d
+
+# Build the build container
+.PHONY: build-container
+build-container: .build-container
+.build-container: Dockerfile-build
+	docker build -f Dockerfile-build -t $(BUILD_CONTAINER) .
+	docker inspect $(BUILD_CONTAINER) > $@
+
+# Start an interactive shell in the build container
+.PHONY: build-shell
+build-shell: .build-container
+	docker run --rm -it --privileged --volume $(shell pwd):/build --workdir /build $(BUILD_CONTAINER)
 
 # Force a rebuild of everything
 rebuild: clean

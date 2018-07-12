@@ -2,3 +2,4 @@
 *.d
 fnc*
 build
+.build-container

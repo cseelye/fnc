@@ -10,7 +10,7 @@
 #include <random>
 
 #include "ip_address.hpp"
-#include "logging.h"
+#include "logging.hpp"
 
 namespace fnc
 {

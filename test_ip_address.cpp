@@ -3,7 +3,7 @@
 #include "catch.hpp"
 #include "exceptions.hpp"
 #include "ip_address.hpp"
-#include "logging.h"
+#include "logging.hpp"
 #include "util/test.hpp"
 
 using namespace fnc;

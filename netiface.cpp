@@ -14,8 +14,8 @@
 
 #include "netiface.hpp"
 #include "exceptions.hpp"
-#include "logging.h"
-#include "netlink.h"
+#include "logging.hpp"
+#include "netlink.hpp"
 #include "util/container_util.hpp"
 #include "util/mac_helper.hpp"
 #include "util/scope_exit.hpp"

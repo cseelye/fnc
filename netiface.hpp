@@ -4,8 +4,8 @@
 #include <string>
 #include <vector>
 #include "ip_address.hpp"
-#include "mac_address.h"
-#include "netlink.h"
+#include "mac_address.hpp"
+#include "netlink.hpp"
 #include "util/mac_helper.hpp"
 #include "util/bitmask_operators.hpp"
 

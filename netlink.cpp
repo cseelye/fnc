@@ -13,9 +13,9 @@
 #include <errno.h>
 #include <stdlib.h>
 
-#include "netlink.h"
+#include "netlink.hpp"
 #include "exceptions.hpp"
-#include "logging.h"
+#include "logging.hpp"
 #include "util/mac_helper.hpp"
 
 namespace fnc

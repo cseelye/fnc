@@ -5,7 +5,7 @@
 #include "spdlog/fmt/fmt.h"
 #include "catch.hpp"
 #include "netiface.hpp"
-#include "logging.h"
+#include "logging.hpp"
 #include "util/test.hpp"
 
 using namespace fnc;

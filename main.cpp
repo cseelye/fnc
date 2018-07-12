@@ -2,10 +2,10 @@
 #include <CLI11.hpp>
 #include "exceptions.hpp"
 #include "netiface.hpp"
-#include "logging.h"
-#include "netlink.h"
+#include "logging.hpp"
+#include "netlink.hpp"
 
-#include "mac_address.h"
+#include "mac_address.hpp"
 
 using namespace fnc;
 

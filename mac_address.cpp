@@ -13,8 +13,8 @@
 #include <vector>
 
 #include "exceptions.hpp"
-#include "logging.h"
-#include "mac_address.h"
+#include "logging.hpp"
+#include "mac_address.hpp"
 
 namespace fnc
 {

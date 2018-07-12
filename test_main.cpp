@@ -1,6 +1,6 @@
 #define CATCH_CONFIG_RUNNER
 #include "catch.hpp"
-#include "logging.h"
+#include "logging.hpp"
 
 int main( int argc, char* argv[] )
 {

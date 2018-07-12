@@ -49,19 +49,16 @@ $(BUILD_BASE_DIR)/ $(OBJ_DIR)/ $(BIN_DIR)/ $(TEST_DIR)/ $(DEP_DIR)/ $(OBJ_DIR)/$
 $(OBJ_DIR)/%.o: %.cpp | $$(@D)/
 	$(CXX) -MMD $(CXXFLAGS) $< -c -o $@
 
-$(OBJ_DIR)/%.o: %.cpp | $$(@D)/
-	$(CXX) -MMD $(CXXFLAGS) $< -c -o $@
-
+# Binaries
 $(EXECUTABLE) : $(BIN_DIR)/$(EXECUTABLE)
-
 $(BIN_DIR)/$(EXECUTABLE): $(BIN_OBJECTS)  | $$(@D)/
 	$(CXX) $(BIN_OBJECTS) $(LDFLAGS) $(LDLIBS) -o $@
 
 $(TEST_EXECUTABLE) : $(TEST_DIR)/$(TEST_EXECUTABLE)
-
 $(TEST_DIR)/$(TEST_EXECUTABLE): $(TEST_OBJECTS)  | $$(@D)/
 	$(CXX) $(TEST_OBJECTS) $(LDFLAGS) $(LDLIBS) -o $@
 
+# Testing
 TEST_ARGS:=
 TRACE:=0
 DEBUG:=0

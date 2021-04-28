@@ -81,6 +81,11 @@ class illegal_argument : public fnc_exception
     using fnc_exception::fnc_exception;
 };
 
+class permission_denied : fnc_exception
+{
+    using fnc_exception::fnc_exception;
+};
+
 /**
  * @brief Throw an exception and automatically include the file, function, line number thrown from
  */
@@ -98,5 +103,11 @@ class illegal_argument : public fnc_exception
  */
 #define THROW_TIMEOUT(...) \
     throw timeout_exception(__FILE__, __FUNCTION__, __LINE__, fmt::format(__VA_ARGS__))
+
+/**
+ * @brief Throw a permission denied exception and automatically include the file, function, line number thrown from
+ */
+#define THROW_DENIED(...) \
+    throw permission_denied(__FILE__, __FUNCTION__, __LINE__, fmt::format(__VA_ARGS__))
 
 } // end namespace fnc

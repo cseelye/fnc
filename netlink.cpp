@@ -180,6 +180,11 @@ void netlink::handle_response_async(std::function<void (struct nlmsghdr*)> callb
                         LOG_TRACE("ACK recieved for pid={} seq={}", msg_ptr->nlmsg_pid, msg_ptr->nlmsg_seq);
                         return;
                     }
+                    else if (err->error == -13)
+                    {
+                        THROW_DENIED("Permission Denied");
+                    }
+
                     THROW_NETEX("netlink error {}", strerror(-(err->error)));
                 }
 

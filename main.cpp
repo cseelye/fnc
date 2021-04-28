@@ -13,7 +13,10 @@ int main(int argc, char** argv)
 {
     CLI::App app{ "FreeNetConfig" };
     int debug = 0;
-    app.add_flag("-d,--debug", debug, "Display debug messages");
+    std::string iface_name;
+
+    app.add_option("-i, --interface", iface_name, "Interface to configure")->required();
+    app.add_flag("-d, --debug", debug, "Display debug messages");
     CLI11_PARSE(app, argc, argv);
 
     if (debug > 0)
@@ -31,9 +34,9 @@ int main(int argc, char** argv)
         std::vector<std::string> ifaces = netiface::get_iface_names();
         LOG_INFO("ifaces=[{}]", join(ifaces));
 
-        auto nic = netiface("dummy0");
+        auto nic = netiface(iface_name);
 
-        if (nic.get_name() != "dummy0")
+        if (nic.get_name() != iface_name)
             LOG_ERROR("Incorrect name");
 
 
@@ -54,7 +57,19 @@ int main(int argc, char** argv)
         LOG_INFO("MTU={}", nic.get_mtu());
         nic.set_ip_address("2.2.2.2");
 
-        nic.set_ip_address("2001:db8:8714:3a90::12");
+        try
+        {
+            nic.set_ip_address("2001:db8:8714:3a90::12");
+        }
+        catch (const permission_denied&)
+        {
+            LOG_DEBUG("Permission denied - IPv6 is probably disabled");
+        }
+        catch(const std::exception& ex)
+        {
+            std::cerr << ex.what() << '\n';
+        }
+
     }
     catch (const network_exception& ex)
     {

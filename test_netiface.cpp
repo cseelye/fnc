@@ -53,7 +53,7 @@ public:
 
     void Teardown()
     {
-//        shell_exec(fmt::format("ip link del {}", iface_name));
+        shell_exec(fmt::format("ip link del {}", iface_name));
     }
 };
 

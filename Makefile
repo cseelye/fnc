@@ -1,12 +1,13 @@
 # Default build type
 BUILD?=debug
 
+BOOST_VERSION=1_76_0
 CXX=g++
-CXXFLAGS.all=-Wall -Werror -std=c++17 -I. -I libs/catch2 -I libs/spdlog/include -I libs/CLI11 -I /opt/boost_1_67_0
+CXXFLAGS.all=-Wall -Werror -std=c++17 -I. -I libs/catch2 -I libs/spdlog/include -I libs/CLI11 -I /opt/boost_$(BOOST_VERSION)
 CXXFLAGS.debug=-Og -g
 CXXFLAGS.release=-O3
-LDFLAGS=-pthread -static -L /opt/boost_1_67_0/stage/lib
-LDLIBS=-lboost_system-mt
+LDFLAGS=-pthread -static -L /opt/boost_$(BOOST_VERSION)/stage/lib
+LDLIBS=-lboost_system
 EXECUTABLE=fnc
 TEST_EXECUTABLE=fnctest
 BUILD_CONTAINER=fnc-build
@@ -82,8 +83,8 @@ clean:
 # Build the build container
 .PHONY: build-container
 build-container: .build-container
-.build-container: Dockerfile-build
-	docker build -f Dockerfile-build -t $(BUILD_CONTAINER) .
+.build-container: build.Dockerfile
+	docker build --target build -f build.Dockerfile -t $(BUILD_CONTAINER) .
 	docker inspect $(BUILD_CONTAINER) > $@
 
 # Start an interactive shell in the build container

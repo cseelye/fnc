@@ -311,7 +311,7 @@ void netiface::set_ip_address(ip_address address)
     LOG_DEBUG("Adding address={} to iface={}", address, name_);
     if (contains(get_ip_addresses(), address))
     {
-        LOG_DEBUG("Address={} already deleted from iface={}", address, name_);
+        LOG_DEBUG("Address={} already present on iface={}", address, name_);
         return;
     }
 
